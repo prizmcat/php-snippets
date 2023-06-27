@@ -289,4 +289,45 @@ echo ('<div style="height:200px; display:block;"><hr /></div>');
 
 $rando = rand(3333,77777);
 echo number_format($rando, 0, ',', ','); 
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////
+
+
+
+
+
+
+
+
+/*basically, if you want to capture specific text or anything in the url string, then redirect them to a specific lp, do the following: */
+/*example url that would hit our lp: domain.com/?campaign=12345/ca/v2 */
+/*We want to capture the '/ca/v2' text and redirect users */ 
+$customURL = $_SERVER['REQUEST_URI']; 
+if (strpos($customURL,'/ca/v2') !== false) {
+    echo Header('Location:'.'https://otherdomain.com/?&campaign='.$_SESSION['campaign']);
+	//echo Header('Location:'.'https://otherdomain.com/?'.$dynamicParams); //use $dynamicParams too if you want
+} else {
+    echo 'Some text to know everything is ok. Usually you leave this part empty.';
+}
+
+
+
+
+
+
+
+
+
+
 ?> 
